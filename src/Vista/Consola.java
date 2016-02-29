@@ -41,4 +41,16 @@ public class Consola {
     public double llegixDouble(){
         return sc.nextDouble();
     }
+    /**
+     * Pide un número por pantalla hasta que se introduzca uno que pertenezca al
+     * array.
+     *
+     * @param l array
+     * @return Opción seleccionada.
+     */
+    public static int selNumMenu(String[] l) {
+        /* falta saber si ha de ser aixi o sa de modificar
+        */
+        return 0;
+    }
 }

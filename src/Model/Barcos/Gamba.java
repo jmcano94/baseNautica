@@ -5,10 +5,18 @@
  */
 package Model.Barcos;
 
+import Model.Barco;
+import Model.Estat;
+
 /**
  *
  * @author Jose
  */
-public class Gamba {
+public class Gamba extends Barco {
+
+    public Gamba(String id, boolean disponible, Estat estat) {
+        super(id, disponible, estat);
+    }
+    
     
 }

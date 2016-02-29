@@ -5,10 +5,18 @@
  */
 package Model.Barcos;
 
+import Model.Barco;
+import Model.Estat;
+
 /**
  *
  * @author Jose
  */
-public class Laser {
+public class Laser extends Barco {
+
+    public Laser(String id, boolean disponible, Estat estat) {
+        super(id, disponible, estat);
+    }
+    
     
 }

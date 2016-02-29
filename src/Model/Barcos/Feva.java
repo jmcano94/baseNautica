@@ -5,10 +5,18 @@
  */
 package Model.Barcos;
 
+import Model.Barco;
+import Model.Estat;
+
 /**
  *
  * @author Jose
  */
-public class Feva {
+public class Feva extends Barco {
+
+    public Feva(String id, boolean disponible, Estat estat) {
+        super(id, disponible, estat);
+    }
+    
 
 }

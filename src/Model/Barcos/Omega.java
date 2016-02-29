@@ -5,10 +5,18 @@
  */
 package Model.Barcos;
 
+import Model.Barco;
+import Model.Estat;
+
 /**
  *
  * @author Jose
  */
-public class Omega {
+public class Omega extends Barco {
+
+    public Omega(String id, boolean disponible, Estat estat) {
+        super(id, disponible, estat);
+    }
+    
     
 }

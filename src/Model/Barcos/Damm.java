@@ -5,10 +5,17 @@
  */
 package Model.Barcos;
 
+import Model.Barco;
+import Model.Estat;
+
 /**
  *
  * @author Jose
  */
-public class Damm {
+public class Damm extends Barco {
     
+    public Damm(String id, boolean disponible, Estat estat) {
+        super(id, disponible, estat);
+    }
+
 }

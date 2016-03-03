@@ -8,21 +8,20 @@ package Controlador;
 import Model.Material;
 import Model.Monitor;
 import Vista.Menu;
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 /**
  *Classe controladora de l'aplicació.
  * @author Jose
  */
-public class Main {
+public class BaseNautica {
     
     private ArrayList<Material> material;
     private ArrayList<Monitor> monitors;
-    private ArrayList<String[]> opciones;
-
-    public Main() {
+    private  static ArrayList<String[]> opciones;
+    private static Menu menu;
+    
+    public BaseNautica() {
         material = new ArrayList();
         monitors = new ArrayList();
         
@@ -35,14 +34,15 @@ public class Main {
     }
     
     public static void main(String args[]){
-        
+        BaseNautica base = new BaseNautica();
+        base.menu.generarMenu();
     }
     
     public void loadData(){
         
     }
     
-     private void inicializarOpciones() {
+     private static void inicializarOpciones() {
         String[] usuario = {"Log in", "Registrar"};
         String[] monitor = {"Reservar moto", "Modificar desti", "Donar-se de baixa", "Log out"};
         String[] gerent = {"Entregar moto", "Recollir moto", "Gestionar local", "Veure estat local", "Log out"};

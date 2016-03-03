@@ -49,8 +49,9 @@ public class Menu {
      *
      */
     private String concatTipoUsuario() {
-        /*falta crear aquest metode
-    }
+        //falta crear aquest metode
+        return null;
+    } 
 
     
     /**
@@ -58,7 +59,7 @@ public class Menu {
      * no estar logueado, mostrará el menú de login.
      * @return Opción seleccionada.
      */
-    public int generarMenu() {
+    public int generarMenu(){
         System.out.println(titulo + this.concatTipoUsuario());
         for (int i = 0; i < opciones.length; i++) {
             System.out.println((i + 1) + "- " + opciones[i]);

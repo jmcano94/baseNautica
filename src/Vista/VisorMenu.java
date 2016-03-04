@@ -20,12 +20,14 @@ public class VisorMenu {
     Controlador controlador;
     static private enum opcionsMenuLogin{OPCIO1, EXIT};
     static private enum opcionsMenuGerent{OPCIO1, OPCIO2, OPCIO3, EXIT};
-    static private enum opcionsMenuMonitor{OPCIO1, EXIT};
+    static private enum opcionsMenuMonitor{OPCIO1, OPCIO2, EXIT};
     static private String[] descLogin = {"Log-in", 
                                          "Sortir"};
     
-    static private String[] descGerent = {"Afegir Monitor", "Mostar Monitors", "Veure Material", "Sortir"};
-    static private String[] descMonitor = {"Crear Sortida", "Sortir"};
+    static private String[] descGerent = {"Consultes de Material", "Gestionar Sortides", "Gestionar Personal", "Sortir"};
+    static private String[] descMonitor = {"Consultar Sortides", "Nova Sortida", "Sortir"};
+    static private String[] gerentGestioPersonal = {"Afegir Monitor", "Veure Monitors", "Eliminar Monitor", "Sortir"};
+    static private String[] gerentGestioSortides = {"Consultar Sortides", "Modificar Sortides", "Nova Sortida", "Sortir"};
     
     /**
      * Constructor Simple
@@ -71,12 +73,47 @@ public class VisorMenu {
             opcio = menuG.getOpcio(consola.getSc());
             switch (opcio){
                 case OPCIO1:
-                    controlador.addMonitor();
                     break;
                 case OPCIO2:
-                    controlador.mostrarMonitors();
+                    Menu<opcionsMenuGerent> menuGS = new Menu<>("Bones " + g.getNom(), opcionsMenuGerent.values());
+                    menuGS.setDescripcions(gerentGestioSortides);
+                    opcionsMenuGerent opcioGS = null;
+                    do {
+                        menuGS.mostrarMenu();
+                        opcioGS = menuGS.getOpcio(consola.getSc());
+                        switch (opcio) {
+                            case OPCIO1:
+                                //"Consultar Sortides"
+                                break;
+                            case OPCIO2:
+                                //"Modificar Sortides"
+                                break;
+                            case OPCIO3:
+                                //"Nova Sortida"
+                                break;
+                        }
+                    } while (opcioGS != opcionsMenuGerent.EXIT);
                     break;
                 case OPCIO3:
+                    Menu<opcionsMenuGerent> menuGP = new Menu<>("Bones " + g.getNom(), opcionsMenuGerent.values());
+                    menuGP.setDescripcions(gerentGestioPersonal);
+                    opcionsMenuGerent opcioGP = null;
+                    do {
+                        menuGP.mostrarMenu();
+                        opcioGP = menuGP.getOpcio(consola.getSc());
+                        switch (opcio) {
+                            case OPCIO1:
+                                controlador.addMonitor();
+                                break;
+                            case OPCIO2:
+                                controlador.mostrarMonitors();
+                                break;
+                            case OPCIO3:
+                                //controlador.eliminarMonitor();
+                                break;
+                        }
+                        
+                    } while (opcioGP != opcionsMenuGerent.EXIT);
                     break;
                     
             }
@@ -92,6 +129,8 @@ public class VisorMenu {
             opcio = menuM.getOpcio(consola.getSc());
             switch (opcio){
                 case OPCIO1:
+                    break;
+                case OPCIO2:
                     break;
             }
         }while (opcio != opcionsMenuMonitor.EXIT);

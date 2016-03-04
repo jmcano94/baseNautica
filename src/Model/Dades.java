@@ -20,8 +20,9 @@ public class Dades {
     public Dades(){
         gerents = new ArrayList();
         gerents.add(new Gerent("jmcano94", "940411cano", "77632596Y", "Jose Manuel", "Cano"));
+        gerents.add(new Gerent("eldelbar", "mcc4040", "21776737S", "Marc", "Calviño"));
         monitors = new ArrayList();
-        monitors.add(new Monitor("mcc40", "mcc40", "11111111A", "Marc", "Calviño"));
+        monitors.add(new Monitor("pedetration", "fuker", "11111111A", "Marcus", "Pedemontus"));
         monitors.add(new Monitor("genjuasu" ,"genjuasu", "22222222B", "Gerard", "Enjuanes"));
     }
 

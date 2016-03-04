@@ -24,10 +24,10 @@ public class VisorMenu {
     static private String[] descLogin = {"Log-in", 
                                          "Sortir"};
     
-    static private String[] descGerent = {"Consultes de Material", "Gestionar Sortides", "Gestionar Personal", "Sortir"};
+    static private String[] descGerent = {"Gestió de Material", "Gestionar Sortides", "Gestionar Personal", "Sortir"};
     static private String[] descMonitor = {"Consultar Sortides", "Nova Sortida", "Sortir"};
-    static private String[] gerentGestioPersonal = {"Afegir Monitor", "Veure Monitors", "Eliminar Monitor", "Sortir"};
-    static private String[] gerentGestioSortides = {"Consultar Sortides", "Modificar Sortides", "Nova Sortida", "Sortir"};
+    static private String[] gerentGestioPersonal = {"Afegir Monitor", "Veure Monitors", "Eliminar Monitor", "Enrere"};
+    static private String[] gerentGestioSortides = {"Consultar Sortides", "Modificar Sortides", "Nova Sortida", "Enrere"};
     
     /**
      * Constructor Simple
@@ -75,7 +75,7 @@ public class VisorMenu {
                 case OPCIO1:
                     break;
                 case OPCIO2:
-                    Menu<opcionsMenuGerent> menuGS = new Menu<>("Bones " + g.getNom(), opcionsMenuGerent.values());
+                    Menu<opcionsMenuGerent> menuGS = new Menu<>("Material " + g.getNom(), opcionsMenuGerent.values());
                     menuGS.setDescripcions(gerentGestioSortides);
                     opcionsMenuGerent opcioGS = null;
                     do {
@@ -95,7 +95,7 @@ public class VisorMenu {
                     } while (opcioGS != opcionsMenuGerent.EXIT);
                     break;
                 case OPCIO3:
-                    Menu<opcionsMenuGerent> menuGP = new Menu<>("Bones " + g.getNom(), opcionsMenuGerent.values());
+                    Menu<opcionsMenuGerent> menuGP = new Menu<>("Personal " + g.getNom(), opcionsMenuGerent.values());
                     menuGP.setDescripcions(gerentGestioPersonal);
                     opcionsMenuGerent opcioGP = null;
                     do {

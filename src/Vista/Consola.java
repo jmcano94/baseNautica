@@ -8,6 +8,7 @@ package Vista;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Locale;
@@ -67,18 +68,18 @@ public final class Consola {
     }
 
     /**
-     * Mostra per pantalla  l'array "l" que pasem com a parametre.
+     * Mostra per pantalla  c'array "c" que pasem com a parametre.
      *
-     * @param l Array a mostrar.
+     * @param c Array a mostrar.
      */
-    public static void imprimirLista(ArrayList l) {
-        if (!l.isEmpty()) {
-            Iterator it = l.iterator();
-
+    public static void imprimirLista(Collection c) {
+        if (!c.isEmpty()) {
+            Iterator it = c.iterator();
+            int i = 0;
             while (it.hasNext()) {
                 Object o = it.next();
-                int i = l.indexOf(o);
                 System.out.println("-------------------" + "\n[" + Integer.toString(i) + "] " + o.toString() + "\n");
+                i = i + 1;
             }
         } else {
             System.out.println("\nNo hi ha cap element a la lista.");
@@ -135,14 +136,14 @@ public final class Consola {
      * Pide un número por pantalla hasta que se introduzca uno que pertenezca a
      * la lista.
      *
-     * @param l Lista.
+     * @param c.
      * @return Opción seleccionada.
      */
-    public static int selNumLista(ArrayList l) {
-        if (!l.isEmpty()) {
+    public static int selNumLista(Collection c) {
+        if (!c.isEmpty()) {
             int num = llegeixInt();
-            while (l.size() - 1 < num || num < 0) {
-                System.out.println("\nEl numero ha de pertanyer a la llista (maxim " + (l.size() - 1) + ").");
+            while (c.size() - 1 < num || num < 0) {
+                System.out.println("\nEl numero ha de pertanyer a la llista (maxim " + (c.size() - 1) + ").");
                 num = llegeixInt();
             }
             return num;

@@ -7,6 +7,10 @@ package Model;
 
 import Vista.Consola;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -15,7 +19,8 @@ import java.util.ArrayList;
 public class Dades {
     private ArrayList<Gerent> gerents;
     private ArrayList<Monitor> monitors;
-    
+    private ArrayList<Sortida> sortides;
+    private Map<String,ArrayList<Material>> material;
     
     public Dades(){
         gerents = new ArrayList();
@@ -24,6 +29,8 @@ public class Dades {
         monitors = new ArrayList();
         monitors.add(new Monitor("pedetration", "fuker", "11111111A", "Marcus", "Pedemontus"));
         monitors.add(new Monitor("genjuasu" ,"genjuasu", "22222222B", "Gerard", "Enjuanes"));
+        material = new HashMap();
+        material.put("Timo", new ArrayList());
     }
 
     public ArrayList<Gerent> getGerents() {
@@ -54,6 +61,14 @@ public class Dades {
     
     public void mostrarMonitors(){
         Consola.imprimirLista(monitors);
+    }
+    
+    public void afegirMaterial(){
+        Set tipus = material.keySet();
+        Consola.escriu("Escull un tipus de Material: " );
+        Consola.imprimirLista(tipus);
+        Consola.selNumLista(tipus);
+        
     }
     
 }

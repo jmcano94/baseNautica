@@ -5,42 +5,116 @@
  */
 package Vista;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
  *
  * @author Jose
  */
-public class Consola {
-    Scanner sc;
+public final class Consola {
+    private static String lletres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private static String numeros = "0123456789";
+    private static Scanner sc;
 
     public Consola() {
         sc = new Scanner(System.in);
     }
     
-    public void escriu(String s){
-        System.out.println(s);
+    public Scanner getSc() {
+        return sc;
     }
-    
-    public void escriu(int i){
+
+    /**
+     * Escriu un valor enter a la pantalla.
+     *
+     * @param i
+     */
+    public static void escriu(int i) {
         System.out.println(i);
     }
-    
-    public void escriu(double d){
+
+    /**
+     * Escriu un String per pantalla.
+     *
+     * @param s
+     */
+    public static void escriu(String s) {
+        System.out.println(s);
+    }
+
+    /**
+     * Escriu un valor en coma flotant a la pantalla.
+     *
+     * @param f
+     */
+    public static void escriu(float f) {
+        System.out.println(f);
+    }
+
+    /**
+     * Escriu una data per pantalla.
+     *
+     * @param d
+     */
+    public static void escriu(Date d) {
         System.out.println(d);
     }
-    
-    public String llegeixString(){
-        return sc.next();
+
+    /**
+     * Mostra per pantalla  l'array "l" que pasem com a parametre.
+     *
+     * @param l Array a mostrar.
+     */
+    public static void imprimirLista(ArrayList l) {
+        if (!l.isEmpty()) {
+            Iterator it = l.iterator();
+
+            while (it.hasNext()) {
+                Object o = it.next();
+                int i = l.indexOf(o);
+                System.out.println("-------------------" + "\n[" + Integer.toString(i) + "] " + o.toString() + "\n");
+            }
+        } else {
+            System.out.println("\nNo hi ha cap element a la lista.");
+        }
     }
-    
-    public int llegeixInt(){
+
+    /**
+     * Llegeix un valor enter que s'ha entrat per teclat i el retorna.
+     *
+     * @return int
+     */
+    public static int llegeixInt() {
+        while (!sc.hasNextInt()) {
+            System.out.println("\nAixo no es un numero.");
+            sc.next();
+        }
         return sc.nextInt();
     }
-    
-    public double llegixDouble(){
+
+    public static double llegeixDouble() {
+        while (!sc.hasNextDouble()) {
+            System.out.println("\nAixo no es un numero.");
+            sc.next();
+        }
         return sc.nextDouble();
     }
+
+    /**
+     * Llegeix un String que s'ha entrat per teclat i el retorna.
+     *
+     * @return
+     */
+    public static String llegeixString() {
+        return sc.next();
+    }
+
     /**
      * Pide un número por pantalla hasta que se introduzca uno que pertenezca al
      * array.
@@ -49,8 +123,85 @@ public class Consola {
      * @return Opción seleccionada.
      */
     public static int selNumMenu(String[] l) {
-        /* falta saber si ha de ser aixi o sa de modificar
-        */
-        return 0;
+        int num = llegeixInt();
+        while (l.length + 1 < num || num < 0) {
+            System.out.println("\nEl numero ha de pertanyer a la llista (maxim " + (l.length + 1) + ").");
+            num = llegeixInt();
+        }
+        return num;
+    }
+
+    /**
+     * Pide un número por pantalla hasta que se introduzca uno que pertenezca a
+     * la lista.
+     *
+     * @param l Lista.
+     * @return Opción seleccionada.
+     */
+    public static int selNumLista(ArrayList l) {
+        if (!l.isEmpty()) {
+            int num = llegeixInt();
+            while (l.size() - 1 < num || num < 0) {
+                System.out.println("\nEl numero ha de pertanyer a la llista (maxim " + (l.size() - 1) + ").");
+                num = llegeixInt();
+            }
+            return num;
+        }
+        return -1;
+    }
+
+    /**
+     * Llegeix un String que despres transforma en un Date i el retorna.
+     *
+     * @return Date
+     */
+    public static Date llegeixData() {
+        boolean bona = false;
+        String s = sc.next();
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm/dd/MM/yyyy", Locale.ENGLISH);
+        Date d = null;
+        while (!bona) {
+            try {
+                d = format.parse(s);
+                bona = true;
+            } catch (ParseException ex) {
+                System.out.println("\nError a l'hora d'introduir la data, recorda (hh:mm/dd/MM/yyyy");
+                s = sc.next();
+                bona = false;
+            }
+        }
+        return d;
+    }
+
+    /**
+     * Lee un string en formato DNI. 8 números y 1 letra mayúscula.
+     *
+     * @return DNI
+     */
+    public static String llegeixDNI() {
+        String s = sc.next();
+        boolean correcte = false;
+        while (!correcte) {
+            boolean es_numero = true;
+            boolean es_lletra = false;
+            if (s.length() == 9) {
+                int i = 0;
+                while (i < 8 && es_numero) {
+                    String c = s.substring(i, i + 1);
+                    es_numero = numeros.contains(c);
+                    i++;
+                }
+                String c = s.substring(8, 9);
+                es_lletra = lletres.contains(c);
+            }
+
+            if (es_numero && es_lletra) {
+                correcte = true;
+            } else {
+                System.out.println("\nAquest no es un dni valid, entra un DNI amb 8 numeros i una lletra MAJUSCULA si us plau: ");
+                s = sc.next();
+            }
+        }
+        return s;
     }
 }

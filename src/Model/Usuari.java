@@ -66,7 +66,7 @@ public abstract class Usuari {
     
     @Override
     public String toString() {
-        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+        return "Nom: " + Nom + " " + Cognom + "\nDNI: " + DNI + "\nUsuari: " + usuari + "\nPassword: " + password;
     }
 
     

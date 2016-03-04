@@ -5,6 +5,7 @@
  */
 package Model;
 
+import Model.Barcos.Neumatica;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -18,4 +19,38 @@ public class Sortida {
     ArrayList<Neumatica> neumatiques;
     Date horaSortida;
     Date horaArribada;
+
+    public Sortida(Monitor monitor, ArrayList<Barco> barcos, ArrayList<Neumatica> neumatiques, Date horaSortida, Date horaArribada) {
+        this.monitor = monitor;
+        this.barcos = barcos;
+        this.neumatiques = neumatiques;
+        this.horaSortida = horaSortida;
+        this.horaArribada = horaArribada;
+    }
+
+    public ArrayList<Barco> getBarcos() {
+        return barcos;
+    }
+
+    public Date getHoraArribada() {
+        return horaArribada;
+    }
+
+    public Date getHoraSortida() {
+        return horaSortida;
+    }
+
+    public Monitor getMonitor() {
+        return monitor;
+    }
+
+    public ArrayList<Neumatica> getNeumatiques() {
+        return neumatiques;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

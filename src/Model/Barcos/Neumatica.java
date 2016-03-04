@@ -3,15 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package Model.Barcos;
+
+import Model.Barco;
+import Model.Estat;
 
 /**
  *
  * @author Jose
  */
-public class Aparell extends Material{
+public class Neumatica extends Barco{
 
-    public Aparell(String id, boolean disponible, Estat estat) {
+    public Neumatica(String id, boolean disponible, Estat estat) {
         super(id, disponible, estat);
     }
     

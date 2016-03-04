@@ -10,11 +10,11 @@ package Model;
  * @author Jose
  */
 public class Estat {
-    boolean usable;
+    boolean desperfecte;
     String descripcio;
 
     public Estat(boolean usable, String descripcio) {
-        this.usable = usable;
+        this.desperfecte = usable;
         this.descripcio = descripcio;
     }
 
@@ -23,7 +23,7 @@ public class Estat {
     }
 
     public boolean isUsable() {
-        return usable;
+        return desperfecte;
     }
 
     public void setDescripcio(String descripcio) {
@@ -31,7 +31,7 @@ public class Estat {
     }
 
     public void setUsable(boolean usable) {
-        this.usable = usable;
+        this.desperfecte = usable;
     }
 
     @Override

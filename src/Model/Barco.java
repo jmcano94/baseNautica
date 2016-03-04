@@ -9,10 +9,50 @@ package Model;
  *
  * @author Jose
  */
-public class Barco extends Material{
+public abstract class Barco {
     
+    String id;
+    boolean disponible;
+    Estat estat;
+
     public Barco(String id, boolean disponible, Estat estat) {
-        super(id, disponible, estat);
+        this.id = id;
+        this.disponible = disponible;
+        this.estat = estat;
     }
+    
+
+   
+
+    public Estat getEstat() {
+        return estat;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public boolean isDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
+    }
+
+    public void setEstat(Estat estat) {
+        this.estat = estat;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
     
 }

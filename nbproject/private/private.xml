@@ -3,7 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/Jose/NetBeansProjects/baseNautica/src/Controlador/BaseNautica.java</file>
+            <file>file:/Users/Jose/NetBeansProjects/baseNautica/src/Model/Barcos/Neumatica.java</file>
+            <file>file:/Users/Jose/NetBeansProjects/baseNautica/src/Model/Material.java</file>
+            <file>file:/Users/Jose/NetBeansProjects/baseNautica/src/Model/Barco.java</file>
+            <file>file:/Users/Jose/NetBeansProjects/baseNautica/src/Model/Monitor.java</file>
+            <file>file:/Users/Jose/NetBeansProjects/baseNautica/src/Model/Estat.java</file>
+            <file>file:/Users/Jose/NetBeansProjects/baseNautica/src/Model/Usuari.java</file>
+            <file>file:/Users/Jose/NetBeansProjects/baseNautica/src/Model/Dades.java</file>
+            <file>file:/Users/Jose/NetBeansProjects/baseNautica/src/Model/Sortida.java</file>
+            <file>file:/Users/Jose/NetBeansProjects/baseNautica/src/Vista/VisorMenu.java</file>
+            <file>file:/Users/Jose/NetBeansProjects/baseNautica/src/Vista/BaseNautica.java</file>
+            <file>file:/Users/Jose/NetBeansProjects/baseNautica/src/Vista/Consola.java</file>
+            <file>file:/Users/Jose/NetBeansProjects/baseNautica/src/Controlador/Controlador.java</file>
         </group>
     </open-files>
 </project-private>

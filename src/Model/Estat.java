@@ -13,8 +13,8 @@ public class Estat {
     boolean desperfecte;
     String descripcio;
 
-    public Estat(boolean usable, String descripcio) {
-        this.desperfecte = usable;
+    public Estat(boolean desperfecte, String descripcio) {
+        this.desperfecte = desperfecte;
         this.descripcio = descripcio;
     }
 

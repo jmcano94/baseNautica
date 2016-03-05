@@ -77,6 +77,17 @@ public class Controlador {
         dades.mostrarMonitors();
     }
     
+    public void afegirMaterial(){
+        dades.afegirMaterial();
+    }
+    
+    public void afegirNouTipusMaterial(){
+        dades.afegirNouTipusMaterial();
+    }
+    
+    public void veurePerTipusMaterial(){
+        dades.veureMaterialPerTipus();
+    }
     
     
     

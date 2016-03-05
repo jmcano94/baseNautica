@@ -3,7 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/Users/Jose/NetBeansProjects/baseNautica/src/Model/Barcos/Neumatica.java</file>
             <file>file:/Users/Jose/NetBeansProjects/baseNautica/src/Model/Material.java</file>
             <file>file:/Users/Jose/NetBeansProjects/baseNautica/src/Model/Barco.java</file>
@@ -16,14 +15,6 @@
             <file>file:/Users/Jose/NetBeansProjects/baseNautica/src/Vista/BaseNautica.java</file>
             <file>file:/Users/Jose/NetBeansProjects/baseNautica/src/Vista/Consola.java</file>
             <file>file:/Users/Jose/NetBeansProjects/baseNautica/src/Controlador/Controlador.java</file>
-=======
-            <file>file:/C:/Users/marc/Desktop/baseNautica/src/Vista/VisorMenu.java</file>
-            <file>file:/C:/Users/marc/Desktop/baseNautica/src/Controlador/Controlador.java</file>
-            <file>file:/C:/Users/marc/Desktop/baseNautica/src/Model/Dades.java</file>
-            <file>file:/C:/Users/marc/Desktop/baseNautica/src/Vista/BaseNautica.java</file>
-            <file>file:/C:/Users/marc/Desktop/baseNautica/src/Model/Monitor.java</file>
-            <file>file:/C:/Users/marc/Desktop/baseNautica/src/Model/Usuari.java</file>
->>>>>>> origin/master
         </group>
     </open-files>
 </project-private>

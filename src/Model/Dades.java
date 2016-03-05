@@ -8,7 +8,6 @@ package Model;
 import Vista.Consola;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -21,6 +20,7 @@ public class Dades {
     private ArrayList<Monitor> monitors;
     private ArrayList<Sortida> sortides;
     private Map<String,ArrayList<Material>> material;
+    private Map<String,String> ids;
     
     public Dades(){
         gerents = new ArrayList();
@@ -31,6 +31,8 @@ public class Dades {
         monitors.add(new Monitor("genjuasu" ,"genjuasu", "22222222B", "Gerard", "Enjuanes"));
         material = new HashMap();
         material.put("Timo", new ArrayList());
+        ids = new HashMap();
+        ids.put("Timo", "TIM_");
     }
 
     public ArrayList<Gerent> getGerents() {
@@ -55,7 +57,7 @@ public class Dades {
         Monitor m = new Monitor(username,contrasenya,dni,nom,cognom);
         monitors.add(m);
         Consola.escriu("\nS'ha afegit el monitor.");
-        
+         
     }
     
     
@@ -65,10 +67,36 @@ public class Dades {
     
     public void afegirMaterial(){
         Set tipus = material.keySet();
+        ArrayList<String> list = new ArrayList(tipus);
         Consola.escriu("Escull un tipus de Material: " );
-        Consola.imprimirLista(tipus);
-        Consola.selNumLista(tipus);
-        
+        Consola.imprimirLista(list);
+        int i = Consola.selNumLista(list);
+        ArrayList mat = material.get(list.get(i));
+        Material m = new Material(ids.get(list.get(i)) + String.valueOf(mat.size()), true, new Estat(false," "), list.get(i));
+        mat.add(m);
+        Consola.escriu("Nou " + m.getNom() + " afegit: \n---------------");
+        Consola.escriu(m.toString());   
     }
     
+    
+    public void afegirNouTipusMaterial(){
+        Consola.escriu("Com es diu el nou tipus de material?: ");
+        String tipus = Consola.llegeixString();
+        Consola.escriu("\nQuin sera el seu ID?: ");
+        String id = Consola.llegeixString();
+        ArrayList<Material> mat = new ArrayList();
+        material.put(tipus, mat);
+        ids.put(tipus, id);
+        Consola.escriu("\nNou tipus afegit: " + tipus);
+    }
+    
+    public void veureMaterialPerTipus(){
+        Set tipus = material.keySet();
+        ArrayList<String> list = new ArrayList(tipus);
+        Consola.escriu("Escull un tipus de Material: " );
+        Consola.imprimirLista(list);
+        int i = Consola.selNumLista(list);
+        ArrayList mat = material.get(list.get(i));
+        Consola.imprimirLista(mat);
+    }
 }

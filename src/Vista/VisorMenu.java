@@ -21,6 +21,7 @@ public class VisorMenu {
     static private enum opcionsMenuLogin{OPCIO1, EXIT};
     static private enum opcionsMenuGerent{OPCIO1, OPCIO2, OPCIO3, EXIT};
     static private enum opcionsMenuMonitor{OPCIO1, OPCIO2, EXIT};
+    static private enum opcionsMenuMaterial{OPCIO1, OPCIO2, OPCIO3, OPCIO4, EXIT};
     static private String[] descLogin = {"Log-in", 
                                          "Sortir"};
     
@@ -28,7 +29,7 @@ public class VisorMenu {
     static private String[] descMonitor = {"Consultar Sortides", "Nova Sortida", "Sortir"};
     static private String[] gerentGestioPersonal = {"Afegir Monitor", "Veure Monitors", "Eliminar Monitor", "Enrere"};
     static private String[] gerentGestioSortides = {"Consultar Sortides", "Modificar Sortides", "Nova Sortida", "Enrere"};
-    
+    static private String[] gerentGestioMaterial = {"Afegir Material", "Afegir nou Tipus", "Eliminar Material", "Veure el Material", "Enrere"};
     /**
      * Constructor Simple
      */
@@ -73,15 +74,37 @@ public class VisorMenu {
             opcio = menuG.getOpcio(consola.getSc());
             switch (opcio){
                 case OPCIO1:
+                    Menu<opcionsMenuMaterial> menuGM = new Menu<>("Material ", opcionsMenuMaterial.values());
+                    menuGM.setDescripcions(gerentGestioMaterial);
+                    opcionsMenuMaterial opcioGM = null;
+                    do{
+                        menuGM.mostrarMenu();
+                        opcioGM = menuGM.getOpcio(consola.getSc());
+                        switch (opcioGM) {
+                            case OPCIO1: 
+                                controlador.afegirMaterial();
+                                break;
+                            case OPCIO2:
+                                controlador.afegirNouTipusMaterial();
+                                break;
+                            case OPCIO3:
+                                controlador.veurePerTipusMaterial();
+                                break;
+                            case OPCIO4:
+                                //eliminar material
+                                break;
+                                
+                        }
+                    }while (opcioGM != opcionsMenuMaterial.EXIT);
                     break;
                 case OPCIO2:
-                    Menu<opcionsMenuGerent> menuGS = new Menu<>("Material " + g.getNom(), opcionsMenuGerent.values());
+                    Menu<opcionsMenuGerent> menuGS = new Menu<>("Sortides ", opcionsMenuGerent.values());
                     menuGS.setDescripcions(gerentGestioSortides);
                     opcionsMenuGerent opcioGS = null;
                     do {
                         menuGS.mostrarMenu();
                         opcioGS = menuGS.getOpcio(consola.getSc());
-                        switch (opcio) {
+                        switch (opcioGS) {
                             case OPCIO1:
                                 //"Consultar Sortides"
                                 break;
@@ -95,7 +118,7 @@ public class VisorMenu {
                     } while (opcioGS != opcionsMenuGerent.EXIT);
                     break;
                 case OPCIO3:
-                    Menu<opcionsMenuGerent> menuGP = new Menu<>("Personal " + g.getNom(), opcionsMenuGerent.values());
+                    Menu<opcionsMenuGerent> menuGP = new Menu<>("Personal ", opcionsMenuGerent.values());
                     menuGP.setDescripcions(gerentGestioPersonal);
                     opcionsMenuGerent opcioGP = null;
                     do {

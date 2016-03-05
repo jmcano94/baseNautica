@@ -12,14 +12,24 @@ import java.io.Serializable;
  * @author Jose
  */
 public class Material implements Serializable {
-    String id;
-    boolean disponible;
-    Estat estat;
+    private String nom;
+    private String id;
+    private boolean disponible;
+    private Estat estat;
 
-    public Material(String id, boolean disponible, Estat estat) {
+    public Material(String id, boolean disponible, Estat estat, String nom) {
         this.id = id;
         this.disponible = disponible;
         this.estat = estat;
+        this.nom = nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getNom() {
+        return nom;
     }
 
     public boolean isDisponible() {
@@ -48,7 +58,19 @@ public class Material implements Serializable {
 
     @Override
     public String toString() {
-        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+        String dispo;
+        String est;
+        if (disponible){
+            dispo = "si";
+        } else{
+            dispo = "no";
+        }
+        if (estat.isUsable()){
+            est = "Llest per fer-se servir";
+        }else{
+            est = "Per reparar";
+        }
+        return nom + "\nID: " + id + "\nDisponible: " +  dispo + "\nEstat: " + est;
     }
     
      

@@ -22,7 +22,7 @@ public class Estat {
         return descripcio;
     }
 
-    public boolean isUsable() {
+    public boolean teDesperfecte() {
         return desperfecte;
     }
 

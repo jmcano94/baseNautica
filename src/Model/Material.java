@@ -65,10 +65,10 @@ public class Material implements Serializable {
         } else{
             dispo = "no";
         }
-        if (estat.isUsable()){
-            est = "Llest per fer-se servir";
-        }else{
+        if (estat.teDesperfecte()){
             est = "Per reparar";
+        }else{
+            est = "Llest per fer-se servir";
         }
         return nom + "\nID: " + id + "\nDisponible: " +  dispo + "\nEstat: " + est;
     }

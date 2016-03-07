@@ -55,6 +55,7 @@ public class Dades {
         Consola.escriu("\nQuina sera la contrasenya? ");
         String contrasenya = Consola.llegeixString();
         Monitor m = new Monitor(username,contrasenya,dni,nom,cognom);
+        if 
         monitors.add(m);
         Consola.escriu("\nS'ha afegit el monitor.");
          

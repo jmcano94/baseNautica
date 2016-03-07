@@ -64,10 +64,13 @@ public abstract class Usuari {
         return Nom;
     }
     
+    public boolean equals(Usuari u) {
+        return true;
+    }
+    
     @Override
     public String toString() {
         return "Nom: " + Nom + " " + Cognom + "\nDNI: " + DNI + "\nUsuari: " + usuari + "\nPassword: " + password;
     }
 
-    
 }

@@ -8,6 +8,7 @@ package Controlador;
 import Model.Dades;
 import Model.Gerent;
 import Model.Monitor;
+import Model.Sortida;
 import Model.Usuari;
 import Vista.Consola;
 import java.util.ArrayList;
@@ -87,6 +88,32 @@ public class Controlador {
     
     public void veurePerTipusMaterial(){
         dades.veureMaterialPerTipus();
+    }
+
+    /**
+     *Crea una nova sortida automatica.
+     * 
+     * @param m Monitor que crea la sortida.
+     */
+    public void iniciarSortida(Monitor m) {
+        
+    }
+    
+    /**
+     *Programa una sortida per a una hora concreta.
+     * 
+     */
+    public void programarSortida() {
+        
+    }
+
+    /**
+     *Finalitzar una sortida que estava en curs.
+     * @param m monitor qe vol acabar la sortida.
+     * @return La sortida en curs del monitor m.
+     */
+    public Sortida acabarSortida(Monitor m) {
+        return null;
     }
     
     

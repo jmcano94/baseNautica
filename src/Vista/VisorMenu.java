@@ -161,7 +161,7 @@ public class VisorMenu {
                 case OPCIO1: // Acabar sortida
                     Sortida s = controlador.acabarSortida(m);
                     break;
-                case OPCIO2: // iniciar sortida
+                case OPCIO2: // Iniciar sortida
                     controlador.iniciarSortida(m);
                     break;
             }

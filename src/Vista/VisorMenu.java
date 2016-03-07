@@ -173,14 +173,7 @@ public class VisorMenu {
             menuM.mostrarMenu();
             opcio = menuM.getOpcio(consola.getSc());
             switch (opcio){
-<<<<<<< HEAD
-                case OPCIO1: // Acabar sortida
-                    Sortida s = controlador.acabarSortida(m);
-                    break;
-                case OPCIO2: // Iniciar sortida
-=======
                 case OPCIO1: // iniciar Sortida
->>>>>>> de69dec79e40502f9d559b68dc3f673b0d81aa3f
                     controlador.iniciarSortida(m);
                     break;
                 case OPCIO2: // acabar Sortida

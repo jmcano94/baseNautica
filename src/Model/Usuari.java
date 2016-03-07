@@ -5,6 +5,8 @@
  */
 package Model;
 
+import Vista.Consola;
+
 /**
  *
  * @author Jose
@@ -70,10 +72,11 @@ public abstract class Usuari {
      * @return fals si usuari o pasword es igual
      */
     public boolean pasEquals(Usuari u) {
-        if (this.usuari == u.usuari || this.password == u.password) {
-            return false;
+        if (this.usuari.equals(u.usuari) || this.password.equals(u.password)) {
+            Consola.escriu("entrat");
+            return true;
         }
-        return true;
+        return false;
     }
     
     @Override

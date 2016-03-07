@@ -57,8 +57,18 @@ public class Dades {
         Consola.escriu("\nQuina sera la contrasenya? ");
         String contrasenya = Consola.llegeixString();
         Monitor m = new Monitor(username,contrasenya,dni,nom,cognom);
-        monitors.add(m);
-        Consola.escriu("\nS'ha afegit el monitor.");
+        Iterator<Monitor> it = monitors.iterator();
+        boolean trobat = false;
+        while ( it.hasNext() && !trobat) {
+            trobat = it.next().pasEquals(m);
+        }
+        if (trobat) {
+            Consola.escriu("\nAquest usuari ja existeix.");
+            m = null;
+        } else {
+            monitors.add(m);
+            Consola.escriu("\nS'ha afegit el monitor.");
+        }
          
     }
     

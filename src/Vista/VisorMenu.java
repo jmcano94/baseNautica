@@ -89,11 +89,11 @@ public class VisorMenu {
                             case OPCIO2:// afegir nou tipus de material
                                 controlador.afegirNouTipusMaterial();
                                 break;
-                            case OPCIO3:// veure el material
-                                controlador.veureMaterialPerTipus();
-                                break;
-                            case OPCIO4://eliminar material
+                            case OPCIO3:// eliminar material
                                 
+                                break;
+                            case OPCIO4:// veure material
+                                controlador.veureMaterialPerTipus();
                                 break;
                                 
                         }

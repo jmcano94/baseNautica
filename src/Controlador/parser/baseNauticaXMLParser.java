@@ -46,7 +46,6 @@ public class baseNauticaXMLParser {
             doc.getDocumentElement().normalize();
 
             // Obtenim dades
-            this.obtenirGerents(doc);
         } catch (SAXParseException err) {
             System.out.println("** Error parsejant" + ", linia " + err.getLineNumber() + ", uri " + err.getSystemId());
             System.out.println(" " + err.getMessage());
@@ -58,14 +57,6 @@ public class baseNauticaXMLParser {
         }
     }
     
-     /**
-     * Obte els gerents de base Nautica
-     *
-     * @param doc document XML del que obtenir les dades
-     */
-    private void obtenirGerents(Document doc) {
-        
-    }
     
     
     

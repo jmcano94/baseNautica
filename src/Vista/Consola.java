@@ -75,7 +75,7 @@ public final class Consola {
     public static void imprimirLista(Collection c) {
         if (!c.isEmpty()) {
             Iterator it = c.iterator();
-            int i = 0;
+            int i = 1;
             while (it.hasNext()) {
                 Object o = it.next();
                 System.out.println("-------------------" + "\n[" + Integer.toString(i) + "] " + o.toString() + "\n");
@@ -142,11 +142,11 @@ public final class Consola {
     public static int selNumLista(Collection c) {
         if (!c.isEmpty()) {
             int num = llegeixInt();
-            while (c.size() - 1 < num || num < 0) {
+            while (c.size() < num || num <= 0) {
                 System.out.println("\nEl numero ha de pertanyer a la llista (maxim " + (c.size() - 1) + ").");
                 num = llegeixInt();
             }
-            return num;
+            return num-1;
         }
         return -1;
     }

@@ -64,7 +64,15 @@ public abstract class Usuari {
         return Nom;
     }
     
-    public boolean equals(Usuari u) {
+    /**
+     *
+     * @param u
+     * @return fals si usuari o pasword es igual
+     */
+    public boolean pasEquals(Usuari u) {
+        if (this.usuari == u.usuari || this.password == u.password) {
+            return false;
+        }
         return true;
     }
     

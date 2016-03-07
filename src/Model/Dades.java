@@ -8,6 +8,7 @@ package Model;
 import Vista.Consola;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -25,7 +26,8 @@ public class Dades {
     public Dades(){
         gerents = new ArrayList();
         gerents.add(new Gerent("jmcano94", "940411cano", "77632596Y", "Jose Manuel", "Cano"));
-        gerents.add(new Gerent("eldelbar", "mcc4040", "21776737S", "Marc", "Calviño"));
+        gerents.add(new Gerent("eldelbar", "mcc4040", "21776737S", "Marc", "Sumnormal"));
+        gerents.add(new Gerent("alejo", "acanocal", "77632597F", "Alejandro", "Cano"));
         monitors = new ArrayList();
         monitors.add(new Monitor("pedetration", "fuker", "11111111A", "Marcus", "Pedemontus"));
         monitors.add(new Monitor("genjuasu" ,"genjuasu", "22222222B", "Gerard", "Enjuanes"));
@@ -55,7 +57,6 @@ public class Dades {
         Consola.escriu("\nQuina sera la contrasenya? ");
         String contrasenya = Consola.llegeixString();
         Monitor m = new Monitor(username,contrasenya,dni,nom,cognom);
-        if 
         monitors.add(m);
         Consola.escriu("\nS'ha afegit el monitor.");
          

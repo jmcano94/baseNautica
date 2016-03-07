@@ -86,7 +86,7 @@ public class Controlador {
         dades.afegirNouTipusMaterial();
     }
     
-    public void veurePerTipusMaterial(){
+    public void veureMaterialPerTipus(){
         dades.veureMaterialPerTipus();
     }
 
@@ -110,10 +110,9 @@ public class Controlador {
     /**
      *Finalitzar una sortida que estava en curs.
      * @param m monitor qe vol acabar la sortida.
-     * @return La sortida en curs del monitor m.
      */
-    public Sortida acabarSortida(Monitor m) {
-        return null;
+    public void acabarSortida(Monitor m) {
+        
     }
     
     

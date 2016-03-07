@@ -8,7 +8,6 @@ package Vista;
 import Controlador.Controlador;
 import Model.Gerent;
 import Model.Monitor;
-import Model.Sortida;
 import Model.Usuari;
 import edu.ub.prog2.utils.Menu;
 
@@ -19,17 +18,18 @@ import edu.ub.prog2.utils.Menu;
 public class VisorMenu {
     Consola consola;
     Controlador controlador;
-    static private enum opcionsMenuLogin{OPCIO1, EXIT};
-    static private enum opcionsMenuGerent{OPCIO1, OPCIO2, OPCIO3, EXIT};
-    static private enum opcionsMenuMonitor{OPCIO1, OPCIO2, EXIT};
-    static private enum opcionsMenuMaterial{OPCIO1, OPCIO2, OPCIO3, OPCIO4, EXIT};
+    static private enum opcionsMenu1{OPCIO1, EXIT};
+    static private enum opcionsMenu4{OPCIO1, OPCIO2, OPCIO3, OPCIO4, EXIT};
+    static private enum opcionsMenu2{OPCIO1, OPCIO2, EXIT};
+    static private enum opcionsMenu3{OPCIO1, OPCIO2, OPCIO3, EXIT};
     static private String[] descLogin = {"Log-in", 
                                          "Sortir"};
     
-    static private String[] descGerent = {"Gestió de Material", "Gestionar Sortides", "Gestionar Personal", "Sortir"};
+    static private String[] descGerent = {"Gestió de Material", "Gestionar Sortides", "Gestionar Personal","Gestionar Barcos", "Sortir"};
     static private String[] descMonitor = {"Acabar Sortida", "Iniciar Sortida", "Sortir"};
     static private String[] gerentGestioPersonal = {"Afegir Monitor", "Veure Monitors", "Eliminar Monitor", "Enrere"};
     static private String[] gerentGestioSortides = {"Consultar Sortides", "Modificar Sortides", "Nova Sortida", "Enrere"};
+    static private String[] gerentGestioBarcos = {"Afegir Barcos", "Veure Barcos", "Eliminar Barcos", "Enrere"};
     static private String[] gerentGestioMaterial = {"Afegir Material", "Afegir nou Tipus", "Eliminar Material", "Veure el Material", "Enrere"};
     /**
      * Constructor Simple
@@ -43,9 +43,9 @@ public class VisorMenu {
      * Mostra el menu d'opcions a l'usuari.
      */
     public void mostrarMenuLogin(){
-        Menu<opcionsMenuLogin> menuL = new Menu<>("BASE NAUTICA",opcionsMenuLogin.values());
+        Menu<opcionsMenu1> menuL = new Menu<>("BASE NAUTICA",opcionsMenu1.values());
         menuL.setDescripcions(descLogin);
-        opcionsMenuLogin opcio = null;
+        opcionsMenu1 opcio = null;
         do{
             menuL.mostrarMenu();
             opcio = menuL.getOpcio(consola.getSc());
@@ -60,7 +60,7 @@ public class VisorMenu {
                     }
                     break;
             }       
-        }while (opcio != opcionsMenuLogin.EXIT);
+        }while (opcio != opcionsMenu1.EXIT);
     }
     
     /**
@@ -68,17 +68,17 @@ public class VisorMenu {
      * @param g gerent que veu les opcions.
      */
     public void mostrarMenuGerent(Gerent g){
-        Menu<opcionsMenuGerent> menuG = new Menu<>("Bones " + g.getNom(), opcionsMenuGerent.values());
+        Menu<opcionsMenu4> menuG = new Menu<>("Bones " + g.getNom(), opcionsMenu4.values());
         menuG.setDescripcions(descGerent);
-        opcionsMenuGerent opcio = null;
+        opcionsMenu4 opcio = null;
         do{
             menuG.mostrarMenu();
             opcio = menuG.getOpcio(consola.getSc());
             switch (opcio){
                 case OPCIO1: //gestio material
-                    Menu<opcionsMenuMaterial> menuGM = new Menu<>("Material ", opcionsMenuMaterial.values());
+                    Menu<opcionsMenu4> menuGM = new Menu<>("Material ", opcionsMenu4.values());
                     menuGM.setDescripcions(gerentGestioMaterial);
-                    opcionsMenuMaterial opcioGM = null;
+                    opcionsMenu4 opcioGM = null;
                     do{
                         menuGM.mostrarMenu();
                         opcioGM = menuGM.getOpcio(consola.getSc());
@@ -90,19 +90,19 @@ public class VisorMenu {
                                 controlador.afegirNouTipusMaterial();
                                 break;
                             case OPCIO3:// veure el material
-                                controlador.veurePerTipusMaterial();
+                                controlador.veureMaterialPerTipus();
                                 break;
                             case OPCIO4://eliminar material
                                 
                                 break;
                                 
                         }
-                    }while (opcioGM != opcionsMenuMaterial.EXIT);
+                    }while (opcioGM != opcionsMenu4.EXIT);
                     break;
                 case OPCIO2: // gestio sortides
-                    Menu<opcionsMenuGerent> menuGS = new Menu<>("Sortides ", opcionsMenuGerent.values());
+                    Menu<opcionsMenu3> menuGS = new Menu<>("Sortides ", opcionsMenu3.values());
                     menuGS.setDescripcions(gerentGestioSortides);
-                    opcionsMenuGerent opcioGS = null;
+                    opcionsMenu3 opcioGS = null;
                     do {
                         menuGS.mostrarMenu();
                         opcioGS = menuGS.getOpcio(consola.getSc());
@@ -117,12 +117,12 @@ public class VisorMenu {
                                 
                                 break;
                         }
-                    } while (opcioGS != opcionsMenuGerent.EXIT);
+                    } while (opcioGS != opcionsMenu3.EXIT);
                     break;
                 case OPCIO3: // gestio de personal
-                    Menu<opcionsMenuGerent> menuGP = new Menu<>("Personal ", opcionsMenuGerent.values());
+                    Menu<opcionsMenu3> menuGP = new Menu<>("Personal ", opcionsMenu3.values());
                     menuGP.setDescripcions(gerentGestioPersonal);
-                    opcionsMenuGerent opcioGP = null;
+                    opcionsMenu3 opcioGP = null;
                     do {
                         menuGP.mostrarMenu();
                         opcioGP = menuGP.getOpcio(consola.getSc());
@@ -138,11 +138,26 @@ public class VisorMenu {
                                 break;
                         }
                         
-                    } while (opcioGP != opcionsMenuGerent.EXIT);
+                    } while (opcioGP != opcionsMenu3.EXIT);
                     break;
-                    
+                case OPCIO4:
+                    Menu<opcionsMenu3> menuGB = new Menu<>("Personal ", opcionsMenu3.values());
+                    menuGB.setDescripcions(gerentGestioBarcos);
+                    opcionsMenu3 opcioGB = null;
+                    do{
+                        menuGB.mostrarMenu();
+                        opcioGB = menuGB.getOpcio(consola.getSc());
+                        switch(opcioGB){
+                            case OPCIO1: //afegir Barcos
+                                break;
+                            case OPCIO2: //veure Barcos
+                                break;
+                            case OPCIO3: //eliminar Barcos
+                                break;
+                        }
+                    }while( opcioGB != opcionsMenu3.EXIT);
             }
-        }while (opcio != opcionsMenuGerent.EXIT);
+        }while (opcio != opcionsMenu4.EXIT);
     }
     
     /**
@@ -151,20 +166,20 @@ public class VisorMenu {
      * @param m
      */
     public void mostrarMenuMonitor(Monitor m){
-        Menu<opcionsMenuMonitor> menuM = new Menu<>("Bones " + m.getNom(), opcionsMenuMonitor.values());
+        Menu<opcionsMenu2> menuM = new Menu<>("Bones " + m.getNom(), opcionsMenu2.values());
         menuM.setDescripcions(descMonitor);
-        opcionsMenuMonitor opcio = null;
+        opcionsMenu2 opcio = null;
         do{
             menuM.mostrarMenu();
             opcio = menuM.getOpcio(consola.getSc());
             switch (opcio){
-                case OPCIO1: // Acabar sortida
-                    Sortida s = controlador.acabarSortida(m);
-                    break;
-                case OPCIO2: // iniciar sortida
+                case OPCIO1: // iniciar Sortida
                     controlador.iniciarSortida(m);
                     break;
+                case OPCIO2: // acabar Sortida
+                    controlador.acabarSortida(m);
+                    break;
             }
-        }while (opcio != opcionsMenuMonitor.EXIT);
+        }while (opcio != opcionsMenu2.EXIT);
     }
 }

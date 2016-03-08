@@ -18,5 +18,5 @@ public class Quatre20 extends Barco {
         super(id, disponible, estat);
     }
     
-    
+    String tipus = "420";
 }

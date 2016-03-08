@@ -18,5 +18,5 @@ public class One extends Barco {
         super(id, disponible, estat);
     }
     
-    
+    String tipus = "One";
 }

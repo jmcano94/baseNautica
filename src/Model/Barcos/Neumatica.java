@@ -17,5 +17,5 @@ public class Neumatica extends Barco{
     public Neumatica(String id, boolean disponible, Estat estat) {
         super(id, disponible, estat);
     }
-    
+    String tipus = "Neumatica";
 }

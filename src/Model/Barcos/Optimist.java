@@ -18,5 +18,5 @@ public class Optimist extends Barco {
         super(id, disponible, estat);
     }
     
-    
+    String tipus = "Optimist";
 }

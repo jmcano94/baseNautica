@@ -18,5 +18,5 @@ public class Gamba extends Barco {
         super(id, disponible, estat);
     }
     
-    
+    String tipus = "Gamba/Raquero";
 }

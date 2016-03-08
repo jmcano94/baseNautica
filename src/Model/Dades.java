@@ -21,6 +21,7 @@ public class Dades {
     private ArrayList<Gerent> gerents;
     private ArrayList<Monitor> monitors;
     private ArrayList<Sortida> sortides;
+    private ArrayList<Barco> barcos;
     private Map<String,ArrayList<Material>> material;
     private Map<String,String> ids;
     

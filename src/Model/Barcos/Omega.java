@@ -17,6 +17,6 @@ public class Omega extends Barco {
     public Omega(String id, boolean disponible, Estat estat) {
         super(id, disponible, estat);
     }
-    
+    String tipus = "Omega";
     
 }

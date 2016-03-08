@@ -18,5 +18,5 @@ public class Laser extends Barco {
         super(id, disponible, estat);
     }
     
-    
+    String tipus = "Laser";
 }

@@ -18,5 +18,5 @@ public class Feva extends Barco {
         super(id, disponible, estat);
     }
     
-
+    String tipus = "Feva";
 }

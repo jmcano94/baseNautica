@@ -16,16 +16,13 @@ import java.util.Date;
 public class Sortida {
     Monitor monitor;
     ArrayList<Barco> barcos;
-    ArrayList<Neumatica> neumatiques;
     Date horaSortida;
     Date horaArribada;
 
-    public Sortida(Monitor monitor, ArrayList<Barco> barcos, ArrayList<Neumatica> neumatiques, Date horaSortida, Date horaArribada) {
+    public Sortida(Monitor monitor, ArrayList<Barco> barcos, Date horaSortida) {
         this.monitor = monitor;
         this.barcos = barcos;
-        this.neumatiques = neumatiques;
         this.horaSortida = horaSortida;
-        this.horaArribada = horaArribada;
     }
 
     public ArrayList<Barco> getBarcos() {
@@ -44,10 +41,12 @@ public class Sortida {
         return monitor;
     }
 
-    public ArrayList<Neumatica> getNeumatiques() {
-        return neumatiques;
+    public void setHoraArribada(Date horaArribada) {
+        this.horaArribada = horaArribada;
     }
-
+    
+    
+    
     @Override
     public String toString() {
         return super.toString(); //To change body of generated methods, choose Tools | Templates.

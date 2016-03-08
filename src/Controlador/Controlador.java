@@ -96,7 +96,7 @@ public class Controlador {
      * @param m Monitor que crea la sortida.
      */
     public void iniciarSortida(Monitor m) {
-        
+       dades.ferSortida(m);
     }
     
     /**

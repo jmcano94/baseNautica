@@ -7,6 +7,7 @@ package Model;
 
 import Vista.Consola;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -110,5 +111,18 @@ public class Dades {
         int i = Consola.selNumLista(list);
         ArrayList mat = material.get(list.get(i));
         Consola.imprimirLista(mat);
+    }
+    
+    /**
+     *
+     * @param m
+     */
+    public void ferSortida(Monitor m) {
+        Date data = new Date();
+        
+    }
+    
+    public void programarSortida() {
+        
     }
 }

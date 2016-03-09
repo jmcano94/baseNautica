@@ -15,12 +15,19 @@ import java.util.Date;
  */
 public class Sortida {
     Monitor monitor;
-    Neumatica llanxa;
+    ArrayList<Neumatica> llanxa;
     ArrayList<Barco> barcos;
     Date horaSortida;
     Date horaArribada;
 
-    public Sortida(Monitor monitor, ArrayList<Barco> barcos, Date horaSortida,Neumatica llanxa) {
+    /**
+     *
+     * @param monitor
+     * @param barcos
+     * @param horaSortida
+     * @param llanxa
+     */
+    public Sortida(Monitor monitor, ArrayList<Barco> barcos, Date horaSortida,ArrayList<Neumatica> llanxa) {
         this.monitor = monitor;
         this.barcos = barcos;
         this.horaSortida = horaSortida;

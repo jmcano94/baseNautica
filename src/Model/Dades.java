@@ -5,6 +5,7 @@
  */
 package Model;
 
+import Model.Barcos.Neumatica;
 import Vista.Consola;
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,6 +23,7 @@ public class Dades {
     private ArrayList<Monitor> monitors;
     private ArrayList<Sortida> sortides;
     private ArrayList<Barco> barcos;
+    private ArrayList<Neumatica> Llanxes;
     private Map<String,ArrayList<Material>> material;
     private Map<String,String> ids;
     
@@ -120,10 +122,22 @@ public class Dades {
      */
     public void ferSortida(Monitor m) {
         Date data = new Date();
+        ArrayList<Barco> b = new ArrayList();
+        ArrayList<Neumatica> n = new ArrayList();
+        Consola.escriu("Escull els barcos que faras servir: ");
+        Consola.escriu("Escull la neumatica amb la que sortiras");
+        mostrarBarcosDisponibles();
         
+        
+        sortides.add(new Sortida(m,b,data,n));
     }
     
     public void programarSortida() {
         
     }
+
+    private void mostrarBarcosDisponibles() {
+        
+    }
+    
 }

@@ -5,14 +5,23 @@
  */
 package Controlador;
 
+import Model.Barco;
 import Model.Dades;
 import Model.Gerent;
 import Model.Monitor;
-import Model.Sortida;
 import Model.Usuari;
 import Vista.Consola;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *Classe controladora de l'aplicació.
@@ -22,7 +31,7 @@ public class Controlador {
     Dades dades;
     
     public Controlador() {
-        dades = new Dades();
+        carregarDades();
     }
    
     
@@ -115,6 +124,52 @@ public class Controlador {
         
     }
     
+    public void afegirBarco(){
+        dades.afegirBarco();
+    }
     
+    public void afegirNouTipusBarco(){
+        dades.afegirNouTipusBarco();
+    }
+    
+    public void veureBarcosPerTipus(){
+        dades.veureBarcosPerTiupus();
+    }
+    
+    public void guardarDades(){
+        File f = new File("Dades.txt");
+        FileOutputStream fout = null;
+        try {
+            fout = new FileOutputStream(f);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Barco.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(fout); 
+            oos.writeObject(dades);
+        } catch (IOException ex) {
+            Logger.getLogger(Barco.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void carregarDades(){
+        File f = new File("Dades.txt");
+        FileInputStream fin = null;
+        try {
+            fin = new FileInputStream(f);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            ObjectInputStream ois = new ObjectInputStream(fin);
+            dades = (Dades) ois.readObject();
+        } catch (IOException ex) {
+            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
     
 }

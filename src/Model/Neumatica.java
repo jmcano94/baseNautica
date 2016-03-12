@@ -3,20 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model.Barcos;
+package Model;
 
-import Model.Barco;
 import Model.Estat;
 
 /**
  *
  * @author Jose
  */
-public class Omega extends Barco {
+public class Neumatica extends Barco{
 
-    public Omega(String id, boolean disponible, Estat estat) {
-        super(id, disponible, estat);
+    public Neumatica(String string, boolean b, Estat estat) {
+        super(string, b, estat, "Neumatica");
     }
-    String tipus = "Omega";
+
     
+
 }

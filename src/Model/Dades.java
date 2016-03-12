@@ -5,8 +5,8 @@
  */
 package Model;
 
-import Model.Barcos.Neumatica;
 import Vista.Consola;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -18,14 +18,15 @@ import java.util.Set;
  *
  * @author Jose
  */
-public class Dades {
+public class Dades implements Serializable{
     private ArrayList<Gerent> gerents;
     private ArrayList<Monitor> monitors;
     private ArrayList<Sortida> sortides;
-    private ArrayList<Barco> barcos;
     private ArrayList<Neumatica> Llanxes;
     private Map<String,ArrayList<Material>> material;
     private Map<String,String> ids;
+    private Map<String,ArrayList<Barco>> barcos;
+    private final long  serialVersionUID = 2401479884442105427L;
     
     public Dades(){
         gerents = new ArrayList();
@@ -36,6 +37,7 @@ public class Dades {
         monitors.add(new Monitor("pedetration", "fuker", "11111111A", "Marcus", "Pedemontus"));
         monitors.add(new Monitor("genjuasu" ,"genjuasu", "22222222B", "Gerard", "Enjuanes"));
         material = new HashMap();
+        barcos = new HashMap();
         material.put("Timo", new ArrayList());
         ids = new HashMap();
         ids.put("Timo", "TIM_");
@@ -121,6 +123,7 @@ public class Dades {
      * @param m
      */
     public void ferSortida(Monitor m) {
+        Consola.escriu("hola");
         Date data = new Date();
         ArrayList<Barco> b = new ArrayList();
         ArrayList<Neumatica> n = new ArrayList();
@@ -140,4 +143,37 @@ public class Dades {
         
     }
     
+    public void afegirBarco(){
+        Set tipus = barcos.keySet();
+        ArrayList<String> list = new ArrayList(tipus);
+        Consola.escriu("Escull un tipus de Barco: " );
+        Consola.imprimirLista(list);
+        int i = Consola.selNumLista(list);
+        ArrayList barc = barcos.get(list.get(i));
+        Barco b = new Barco(ids.get(list.get(i)) + String.valueOf(barc.size()), true, new Estat(false," "), list.get(i));
+        barc.add(b);
+        Consola.escriu("Nou " + b.getTipus() + " afegit: \n---------------");
+        Consola.escriu(b.toString());   
+    }
+    
+    public void afegirNouTipusBarco(){
+        Consola.escriu("Com es diu el nou tipus de barco?: ");
+        String tipus = Consola.llegeixString();
+        Consola.escriu("\nQuin sera el seu ID?: ");
+        String id = Consola.llegeixString();
+        ArrayList<Barco> barc = new ArrayList();
+        barcos.put(tipus, barc);
+        ids.put(tipus, id);
+        Consola.escriu("\nNou tipus afegit: " + tipus);
+    }
+    
+    public void veureBarcosPerTiupus(){
+        Set tipus = barcos.keySet();
+        ArrayList<String> list = new ArrayList(tipus);
+        Consola.escriu("Escull un tipus de Barco: " );
+        Consola.imprimirLista(list);
+        int i = Consola.selNumLista(list);
+        ArrayList barc = barcos.get(list.get(i));
+        Consola.imprimirLista(barc);
+    }
 }

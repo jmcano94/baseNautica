@@ -5,11 +5,13 @@
  */
 package Model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Jose
  */
-public class Estat {
+public class Estat implements Serializable{
     boolean desperfecte;
     String descripcio;
 

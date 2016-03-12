@@ -26,10 +26,10 @@ public class VisorMenu {
                                          "Sortir"};
     
     static private String[] descGerent = {"Gestió de Material", "Gestionar Sortides", "Gestionar Personal","Gestionar Barcos", "Sortir"};
-    static private String[] descMonitor = {"Acabar Sortida", "Iniciar Sortida", "Sortir"};
+    static private String[] descMonitor = {"Iniciar Sortida", "Acabar Sortida", "Sortir"};
     static private String[] gerentGestioPersonal = {"Afegir Monitor", "Veure Monitors", "Eliminar Monitor", "Enrere"};
     static private String[] gerentGestioSortides = {"Consultar Sortides", "Modificar Sortides", "Nova Sortida", "Enrere"};
-    static private String[] gerentGestioBarcos = {"Afegir Barcos", "Veure Barcos", "Eliminar Barcos", "Enrere"};
+    static private String[] gerentGestioBarcos = {"Afegir Barcos", "Afegir Nou Tipus Barco", "Veure Barcos", "Eliminar Barcos", "Enrere"};
     static private String[] gerentGestioMaterial = {"Afegir Material", "Afegir nou Tipus", "Eliminar Material", "Veure el Material", "Enrere"};
     /**
      * Constructor Simple
@@ -59,6 +59,8 @@ public class VisorMenu {
                         mostrarMenuMonitor(Monitor.class.cast(usuari));
                     }
                     break;
+                case EXIT:
+                    controlador.guardarDades();
             }       
         }while (opcio != opcionsMenu1.EXIT);
     }
@@ -141,21 +143,26 @@ public class VisorMenu {
                     } while (opcioGP != opcionsMenu3.EXIT);
                     break;
                 case OPCIO4:
-                    Menu<opcionsMenu3> menuGB = new Menu<>("Personal ", opcionsMenu3.values());
+                    Menu<opcionsMenu4> menuGB = new Menu<>("Personal ", opcionsMenu4.values());
                     menuGB.setDescripcions(gerentGestioBarcos);
-                    opcionsMenu3 opcioGB = null;
+                    opcionsMenu4 opcioGB = null;
                     do{
                         menuGB.mostrarMenu();
                         opcioGB = menuGB.getOpcio(consola.getSc());
                         switch(opcioGB){
                             case OPCIO1: //afegir Barcos
+                                controlador.afegirBarco();
                                 break;
-                            case OPCIO2: //veure Barcos
+                            case OPCIO2: //afegir Nou tipusBarco
+                                controlador.afegirNouTipusBarco();
                                 break;
-                            case OPCIO3: //eliminar Barcos
+                            case OPCIO3: //veure Barcos
+                                controlador.veureBarcosPerTipus();
+                                break;
+                            case OPCIO4: //eliminar Barcos
                                 break;
                         }
-                    }while( opcioGB != opcionsMenu3.EXIT);
+                    }while( opcioGB != opcionsMenu4.EXIT);
             }
         }while (opcio != opcionsMenu4.EXIT);
     }

@@ -6,12 +6,13 @@
 package Model;
 
 import Vista.Consola;
+import java.io.Serializable;
 
 /**
  *
  * @author Jose
  */
-public abstract class Usuari {
+public abstract class Usuari implements Serializable{
     String usuari;
     String password;
     String DNI;

@@ -5,24 +5,35 @@
  */
 package Model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Jose
  */
-public abstract class Barco {
+public class Barco implements Serializable {
     
-    String id;
-    boolean disponible;
-    Estat estat;
-
-    public Barco(String id, boolean disponible, Estat estat) {
-        this.id = id;
-        this.disponible = disponible;
-        this.estat = estat;
-    }
-    
-
+    private String id;
+    private boolean disponible;
+    private Estat estat;
+    private String tipus;
    
+
+    Barco(String string, boolean b, Estat estat, String get) {
+        id = string;
+        disponible = b;
+        this.estat = estat;
+        tipus = get;
+    
+    }
+
+    public String getTipus() {
+        return tipus;
+    }
+
+    public void setTipus(String tipus) {
+        this.tipus = tipus;
+    }
 
     public Estat getEstat() {
         return estat;
@@ -47,12 +58,26 @@ public abstract class Barco {
     public void setId(String id) {
         this.id = id;
     }
-
+    
+    
     @Override
     public String toString() {
-        return super.toString(); //To change body of generated methods, choose Tools | Templates.
+        String dispo;
+        String est;
+        if (disponible){
+            dispo = "si";
+        } else{
+            dispo = "no";
+        }
+        if (estat.teDesperfecte()){
+            est = "Per reparar";
+        }else{
+            est = "Llest per fer-se servir";
+        }
+        return tipus + "\nID: " + id + "\nDisponible: " +  dispo + "\nEstat: " + est;    
     }
     
+   
     
     
 }

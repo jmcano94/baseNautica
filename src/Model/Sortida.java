@@ -5,7 +5,7 @@
  */
 package Model;
 
-import Model.Barcos.Neumatica;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -13,7 +13,7 @@ import java.util.Date;
  *
  * @author Jose
  */
-public class Sortida {
+public class Sortida implements Serializable {
     Monitor monitor;
     ArrayList<Neumatica> llanxa;
     ArrayList<Barco> barcos;

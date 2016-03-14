@@ -92,7 +92,7 @@ public class VisorMenu {
                                 controlador.afegirNouTipusMaterial();
                                 break;
                             case OPCIO3:// eliminar material
-                                
+                                controlador.eliminarMaterial();
                                 break;
                             case OPCIO4:// veure material
                                 controlador.veureMaterialPerTipus();
@@ -136,7 +136,7 @@ public class VisorMenu {
                                 controlador.mostrarMonitors();
                                 break;
                             case OPCIO3: // eliminar monitor
-                                //controlador.eliminarMonitor();
+                                controlador.eliminarMonitor();
                                 break;
                         }
                         
@@ -160,6 +160,7 @@ public class VisorMenu {
                                 controlador.veureBarcosPerTipus();
                                 break;
                             case OPCIO4: //eliminar Barcos
+                                controlador.eliminarBarco();
                                 break;
                         }
                     }while( opcioGB != opcionsMenu4.EXIT);

@@ -83,10 +83,19 @@ public class Dades implements Serializable{
         Consola.imprimirLista(monitors);
     }
     
+    public void eliminarMonitor(){
+        Consola.escriu("\nEscull el monitor que vols eliminar:");
+        Consola.imprimirLista(monitors);
+        int i = Consola.selNumLista(monitors);
+        monitors.remove(i);
+        Consola.escriu("\nMonitor eliminat correctament.");
+    }
+    
+    
     public void afegirMaterial(){
         Set tipus = material.keySet();
         ArrayList<String> list = new ArrayList(tipus);
-        Consola.escriu("Escull un tipus de Material: " );
+        Consola.escriu("\nEscull un tipus de Material: " );
         Consola.imprimirLista(list);
         int i = Consola.selNumLista(list);
         ArrayList mat = material.get(list.get(i));
@@ -98,20 +107,81 @@ public class Dades implements Serializable{
     
     
     public void afegirNouTipusMaterial(){
-        Consola.escriu("Com es diu el nou tipus de material?: ");
+        Consola.escriu("\nCom es diu el nou tipus de material?: ");
+        boolean trobat = false;
+        Set llistaTipus = material.keySet();
         String tipus = Consola.llegeixString();
-        Consola.escriu("\nQuin sera el seu ID?: ");
+        Iterator it = llistaTipus.iterator();
+        while (it.hasNext() && !trobat){
+            String element = (String) it.next();
+            trobat = element.equals(tipus);
+        }
+        if (!trobat){
+            Consola.escriu("\nQuin sera el seu ID?: ");
+            String id = Consola.llegeixString();
+            ArrayList<Material> mat = new ArrayList();
+            material.put(tipus, mat);
+            ids.put(tipus, id);
+            Consola.escriu("\nNou tipus afegit: " + tipus);
+        }else{
+            Consola.escriu("\nJa existeix aquest tipus de material.");
+        }
+    }
+    
+    public void eliminarMaterial(){
+        Consola.escriu("\nEntra l'ID del material.");
         String id = Consola.llegeixString();
-        ArrayList<Material> mat = new ArrayList();
-        material.put(tipus, mat);
-        ids.put(tipus, id);
-        Consola.escriu("\nNou tipus afegit: " + tipus);
+        String tipus = (String) getKeyFromValue(ids, id);
+        if (tipus != null){
+            ArrayList<Material> array = material.get(tipus);
+            Iterator it = array.iterator();
+            boolean trobat = false;
+            while (it.hasNext() && !trobat){
+                Material m = (Material) it.next();
+                if(m.getId().equals(id)){
+                    trobat = true;
+                    array.remove(m);
+                }
+            }
+            if (!trobat){
+                Consola.escriu("\nNo existeix cap material amb aquest ID");
+            } else{
+                Consola.escriu("\nMaterial eliminat correctament");
+            }
+        }else{
+            Consola.escriu("\nNo existeix l'ID introduit.");
+        }   
+    }
+    
+    public void eliminarTipusMaterial(){
+        Consola.escriu("\nIntrodueix el tipus que vols esborrar:");
+        Consola.imprimirLista(material.keySet());
+        String s = Consola.llegeixString();
+        while(!material.keySet().contains(s)){
+            Consola.escriu("\nAquest no es un tipus de la llista, siusplau introdueix un tipus valid");
+            s = Consola.llegeixString();
+        }
+        Consola.escriu("\nEstas segur de que vols eliminar aquest tipus i tots els seus elements?(S/N): ");
+        String resposta = Consola.llegeixString();
+        while (!resposta.equals("S") || !resposta.equals("N")){
+            Consola.escriu("No he entes, respon S o N.");
+            resposta = Consola.llegeixString();
+        }
+        if(resposta.equals("S")){
+            material.remove(s);
+            Consola.escriu("\nS'ha esborrat el tipus.");
+        }
+        else{
+            Consola.escriu("\nS'ha cancelat l'operació.");
+        }
+        
+        
     }
     
     public void veureMaterialPerTipus(){
         Set tipus = material.keySet();
         ArrayList<String> list = new ArrayList(tipus);
-        Consola.escriu("Escull un tipus de Material: " );
+        Consola.escriu("\nEscull un tipus de Material: " );
         Consola.imprimirLista(list);
         int i = Consola.selNumLista(list);
         ArrayList mat = material.get(list.get(i));
@@ -127,8 +197,8 @@ public class Dades implements Serializable{
         Date data = new Date();
         ArrayList<Barco> b = new ArrayList();
         ArrayList<Neumatica> n = new ArrayList();
-        Consola.escriu("Escull els barcos que faras servir: ");
-        Consola.escriu("Escull la neumatica amb la que sortiras");
+        Consola.escriu("\nEscull els barcos que faras servir: ");
+        Consola.escriu("\nEscull la neumatica amb la que sortiras");
         mostrarBarcosDisponibles();
         
         
@@ -157,14 +227,50 @@ public class Dades implements Serializable{
     }
     
     public void afegirNouTipusBarco(){
-        Consola.escriu("Com es diu el nou tipus de barco?: ");
+        Consola.escriu("\nCom es diu el nou tipus de barco?: ");
         String tipus = Consola.llegeixString();
-        Consola.escriu("\nQuin sera el seu ID?: ");
+        boolean trobat = false;
+        Set llistaBarcos = barcos.keySet();
+        Iterator it = llistaBarcos.iterator();
+        while (it.hasNext() && !trobat){
+            String element = (String) it.next();
+            trobat = element.equals(tipus);
+        }
+        if (!trobat){
+            Consola.escriu("\nQuin sera el seu ID?: ");
+            String id = Consola.llegeixString();
+            ArrayList<Barco> barc = new ArrayList();
+            barcos.put(tipus, barc);
+            ids.put(tipus, id);
+            Consola.escriu("\nNou tipus afegit: " + tipus);
+        }else{
+            Consola.escriu("\nJa existeix aquest tipus de barco");
+        }
+    }
+    
+    public void eliminarBarco(){
+        Consola.escriu("\nEntra l'ID del barco: ");
         String id = Consola.llegeixString();
-        ArrayList<Barco> barc = new ArrayList();
-        barcos.put(tipus, barc);
-        ids.put(tipus, id);
-        Consola.escriu("\nNou tipus afegit: " + tipus);
+        String tipus = (String) getKeyFromValue(ids, id);
+        if (tipus != null){
+            ArrayList<Barco> array = barcos.get(tipus);
+            Iterator it = array.iterator();
+            boolean trobat = false;
+            while (it.hasNext() && !trobat){
+                Barco b = (Barco) it.next();
+                if(b.getId().equals(id)){
+                    trobat = true;
+                    array.remove(b);
+                }
+            }
+            if (!trobat){
+                Consola.escriu("\nNo existeix cap barco amb aquest ID");
+            } else{
+                Consola.escriu("\nBarco eliminat correctament");
+            }
+        }else{
+            Consola.escriu("\nNo existeix l'ID introduit.");
+        }
     }
     
     public void veureBarcosPerTiupus(){
@@ -175,5 +281,14 @@ public class Dades implements Serializable{
         int i = Consola.selNumLista(list);
         ArrayList barc = barcos.get(list.get(i));
         Consola.imprimirLista(barc);
+    }
+    
+    private static Object getKeyFromValue(Map m, Object value){
+        for(Object o : m.keySet()){
+            if(m.get(o).equals(value)){
+                return o;
+            }
+        }
+        return null;
     }
 }

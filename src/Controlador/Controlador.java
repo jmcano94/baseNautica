@@ -83,6 +83,10 @@ public class Controlador {
         dades.addMonitor();
     }
     
+    public void eliminarMonitor(){
+        dades.eliminarMonitor();
+    }
+    
     public void mostrarMonitors(){
         dades.mostrarMonitors();
     }
@@ -93,6 +97,10 @@ public class Controlador {
     
     public void afegirNouTipusMaterial(){
         dades.afegirNouTipusMaterial();
+    }
+    
+    public void eliminarMaterial(){
+        dades.eliminarMaterial();
     }
     
     public void veureMaterialPerTipus(){
@@ -132,6 +140,9 @@ public class Controlador {
         dades.afegirNouTipusBarco();
     }
     
+    public void eliminarBarco(){
+        dades.eliminarBarco();
+    }
     public void veureBarcosPerTipus(){
         dades.veureBarcosPerTiupus();
     }

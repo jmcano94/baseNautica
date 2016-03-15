@@ -195,13 +195,10 @@ public class Dades implements Serializable{
     public void ferSortida(Monitor m) {
         Consola.escriu("hola");
         Date data = new Date();
-        ArrayList<Barco> b = new ArrayList();
-        ArrayList<Neumatica> n = new ArrayList();
         Consola.escriu("\nEscull els barcos que faras servir: ");
+        ArrayList<Barco> b = seleccioBarcosDisponibles();
         Consola.escriu("\nEscull la neumatica amb la que sortiras");
-        mostrarBarcosDisponibles();
-        
-        
+        ArrayList<Neumatica> n = seleccioNeumatiquesDisponibles();
         sortides.add(new Sortida(m,b,data,n));
     }
     
@@ -209,8 +206,12 @@ public class Dades implements Serializable{
         
     }
 
-    private void mostrarBarcosDisponibles() {
-        
+    private ArrayList<Barco> seleccioBarcosDisponibles() {
+        return null;
+    }
+    
+    private ArrayList<Neumatica> seleccioNeumatiquesDisponibles() {
+        return null;
     }
     
     public void afegirBarco(){

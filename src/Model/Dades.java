@@ -193,7 +193,6 @@ public class Dades implements Serializable{
      * @param m
      */
     public void ferSortida(Monitor m) {
-        Consola.escriu("hola");
         Date data = new Date();
         Consola.escriu("\nEscull els barcos que faras servir: ");
         ArrayList<Barco> b = seleccioBarcosDisponibles();
